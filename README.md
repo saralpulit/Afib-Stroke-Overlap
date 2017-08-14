@@ -1,9 +1,9 @@
 # Afib-Stroke-Overlap
 Code and calls to software that accompanies manuscript on the overlap of atrial fibrillation genetics and cardioembolic stroke
 
-In this repository:
+In this repository: \n
 
-(1) bolt-lmm.gwas.sh
+(1) bolt-lmm.gwas.sh \n
     - A call to BOLT-LMM to run a GWAS in the SiGN stroke data, for various phenotypes
 (2) run.gcta.h2.sh
     - A call to GCTA to calculate heritability
