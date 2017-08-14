@@ -27,4 +27,5 @@ In this repository:
 
     - An R script to convert h2 on the observed scale to the liability scale
 (7) afib.GRS.R
+
     - An R script for calculating the association between the GRS and various stroke subtypes.
