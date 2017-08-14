@@ -20,10 +20,10 @@ pheno=$2
 #### Include PCs and sex as covariates
 
 $bolt --bfile=$grm.$grm_subset \
-    --phenoFile=./pheno/stroke.all.consensus.AFR.EUR.QC2.$pheno.all.cntrl.boltlmm.pheno \
+    --phenoFile=./stroke.all.consensus.AFR.EUR.QC2.$pheno.all.cntrl.boltlmm.pheno \
     --phenoCol=$pheno \
-    --geneticMapFile /hpc/local/CentOS7/hers_en/software/BOLT-LMM_v2.2/tables/genetic_map_hg19.txt.gz \
-    --LDscoresFile /hpc/local/CentOS7/hers_en/software/BOLT-LMM_v2.2/tables/LDSCORE.1000G_EUR.tab.gz \
+    --geneticMapFile /home/software/BOLT-LMM_v2.2/tables/genetic_map_hg19.txt.gz \
+    --LDscoresFile /home/software/BOLT-LMM_v2.2/tables/LDSCORE.1000G_EUR.tab.gz \
     --reml \
     --covarFile ./stroke.all.consensus.AFR.EUR.QC2.covariates.txt \
     --covarCol SEX \
