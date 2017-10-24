@@ -1,5 +1,8 @@
 # Afib-Stroke-Overlap
-Code and calls to software that accompanies manuscript on the overlap of atrial fibrillation genetics and cardioembolic stroke
+Code and calls to software that accompanies manuscript on the overlap of atrial fibrillation genetics and cardioembolic stroke. Additional data relevant to this project but that is not stored here, can be downloaded at Zenodo. This includes:
+
+GWAS summary-results of atrial fibrillation (broadly defined) vs. all controls: https://doi.org/10.5281/zenodo.1035871  
+GWAS summary-results of atrial fibrillation (strictly defined) vs. all controls: https://doi.org/10.5281/zenodo.1035873
 
 In this repository:
 
