@@ -17,6 +17,18 @@ GWAS summary-results of atrial fibrillation (strictly defined) vs. all controls:
 #### (2) GeneticRiskScore.SNP.information.txt
 
    - The SNP identifiers, effect allele for that SNP, and weight given to that SNP (as derived through a previous genome-wide association study) to cacluate the genetic risk scores presented in the paper.
+   
+#### (3) SuppTable4.partA.SiGN.AFGen.trait.correlations.txt
+
+   - Supplementary Table 4 (part A): correlation between SNP z-scores in the Atrial Fibrillation Genetics (AFGen) Consortium GWAS of atrial fibrillation and SNP z-scores for ischemic stroke subtypes and atrial fibrillation as measured in SiGN.
+   - Columns are:
+      - the z-score threshold in AFGen used as a cutoff to calculate Pearson's r (correlation)
+      - all following columns contain the Pearson's correlation between the AFGen SNPs and the column named in the column (e.g., atrial fibrillation (in SiGN), educational attainment, cardioembolic stroke, etc)
+      - more details on the table formats can be found in the supplementary information of the manuscript.
+ 
+#### (4) SuppTable4.partB.SiGN.AFGen.trait.correlations.drop-pitx2-zfhx3.txt
+
+   - Supplementary Table 4 (part B): same as in Part A, but this time excluding 2Mb up- and downstream of the *PITX2* (chromosome 4) and *ZFHX3* (chromosome 16) loci
 
 ## Scripts in this repository:
 
