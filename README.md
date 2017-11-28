@@ -36,7 +36,8 @@ Merged GWAS summary-level results from the AFGen GWAS, educational attainment GW
 
    - Supplementary Table 4 (part B): same as in Part A, but this time excluding 2Mb up- and downstream of the *PITX2* (chromosome 4) and *ZFHX3* (chromosome 16) loci
 
-#### (5) stroke.all.consensus.AFR.EUR.QC2.chr16.zfhx3.snps and stroke.all.consensus.AFR.EUR.QC2.chr4.pitx2.snps
+#### (5) stroke.all.consensus.AFR.EUR.QC2.chr16.zfhx3.snps
+#### (6) stroke.all.consensus.AFR.EUR.QC2.chr4.pitx2.snps
 
    - A list of SNPs in the PITX2 and ZFHX3 loci excluded from the summary-level GWAS before generating Supplementary Table 4 (part B)
    
@@ -70,7 +71,7 @@ Merged GWAS summary-level results from the AFGen GWAS, educational attainment GW
 
    - An R script for calculating the association between the GRS and various stroke subtypes.
 
-#### afib.traitCorrelation.R
+#### (8) afib.traitCorrelation.R
 
    - An R script for calculating the genetic correlations between AFGen (atrial fibrillation) and traits with GWAS data available in SiGN (the script also plots the results)
    - this script can be run by first downloading the data at this link (please see above): https://doi.org/10.5281/zenodo.1067751 
