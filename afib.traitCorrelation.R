@@ -3,30 +3,6 @@ data <- read.table("SiGN.AFGen.correlations.gwas.zscores.merged.txt.gz",header=T
 ## Data header (data is downloadable; please see README for this GitHub repository)
 ## SNP AFGen.EUR.Z EduYrs.Z afib.broad.Z allstroke.Z CCScCEmajor.Z CCScCRYPTCE.Z CCScINCUNC.Z ... [19 columns total]
 
-## Calculate the correlation matrix on the full set of data (all phenotypes vs all phenotypes)
-## Only calculate correlations across pairs where both z-score values are present
-cor.matrix <- cor(data[,2:19],use="complete.obs")
-
-## Subset the correlation matrix down to just the CCS Causative phenotypes + AFGen + Afib (SiGN) + Education Years (as a null)
-## Do a bit of reordering so the columns are in the order we want
-
-plot.fig.matrix <- cor.matrix[c(4,5,8,9,10,6,7,3,1,2),c(4,5,8,9,10,6,7,3,1,2)]
-
-################
-### Figure 3 ###
-################
-
-## Plot out this correlation matrix
-## We place these two triangles together in powerpoint and change the coloring of the printed correlation values in Illustrator to generate figure 3
-library(corrplot)
-mycol <- colorRampPalette(c("dodgerblue4","white","sienna2")) ## color shading
-
-## This plots out a triangle of color-shaded correlations
-corrplot(as.matrix(plot.fig.matrix),col=mycol(200),tl.cex=0.5,number.cex=0.5,type="upper")
-
-## This plots out a triangle with the actual correlation (r) values printed
-corrplot(as.matrix(plot.fig.matrix),col=mycol(200),tl.cex=0.5,number.cex=0.5,type="lower",method="number")
-
 #####################
 ### AFGen vs SiGN ###
 #####################
