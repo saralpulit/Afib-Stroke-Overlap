@@ -70,4 +70,8 @@ Merged GWAS summary-level results from the AFGen GWAS, educational attainment GW
 
    - An R script for calculating the association between the GRS and various stroke subtypes.
 
+#### afib.traitCorrelation.R
+
+   - An R script for calculating the genetic correlations between AFGen (atrial fibrillation) and traits with GWAS data available in SiGN (the script also plots the results)
+   - this script can be run by first downloading the data at this link (please see above): https://doi.org/10.5281/zenodo.1067751 
 
