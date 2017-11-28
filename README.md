@@ -5,7 +5,9 @@ Code and calls to software that accompanies manuscript on the overlap of atrial 
 
 ### (1) Downloadable data
 
-GWAS summary-level results of atrial fibrillation (broadly defined) vs. all controls: https://doi.org/10.5281/zenodo.1035871  GWAS summary-level results of atrial fibrillation (strictly defined) vs. all controls: https://doi.org/10.5281/zenodo.1035873
+GWAS summary-level results of atrial fibrillation (broadly defined) vs. all controls: https://doi.org/10.5281/zenodo.1035871  
+GWAS summary-level results of atrial fibrillation (strictly defined) vs. all controls: https://doi.org/10.5281/zenodo.1035873
+
 Merged GWAS summary-level results from the AFGen GWAS, educational attainment GWAS, and stroke subtype and atrial fibrillation GWAS performed in the SiGN data. These data were used to generate the genetic correlation results: https://doi.org/10.5281/zenodo.1067751 
 
 ### (2) Data in this repository
