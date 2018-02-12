@@ -18,8 +18,17 @@ clinical <- "age + as.factor(hypertension) + as.factor(diabetesMelitus) + as.fac
 #### Run the GRS with just PCs and sex
 #### Then run the GRS with the clinical covariates included
 
+#### Create a z-transformed GRS to calculate beta per 1 SD increase in the GRS
+grs.z <- (data$SCORESUMfiltered.info.0.8.frq.0.01-mean(data$SCORESUMfiltered.info.0.8.frq.0.01))/sd(data$SCORESUMfiltered.info.0.8.frq.0.01)
+
+data <- cbind(data,grs.z)
+
+# calculate stats using standardized GRS? set to 0 to turn off
+mygrs.z = 1
+
 #### Set up an empty matrix to store the results
-results.all <- matrix(ncol=9,nrow=26,data=NA)
+results.all <- matrix(ncol=9,nrow=28,data=NA)
+
 #### Name the columns
 #### b0/se0/p0 refer to beta, se and p-value for a model that only includes PCs and sex
 #### b1/se1/p1 refer to beta, se and p-value for a model that includes PCs, sex, and clinical covariates
@@ -33,22 +42,34 @@ counter <- 1
 for(i in c(26,27,40,41,52,53,28,29,42,43,50,51,30,31,54,55,34:39,46,47,58,59)) {
 	
 	pheno <- colnames(data)[i]
-  ### Count up the cases and controls for this analysis. Note that phenotypes must be 1 (controls) and 2 (cases)
 	cases <- table(data[,pheno]==2)["TRUE"][[1]]
 	controls <- table(data[,pheno]==1)["TRUE"][[1]]
 	
-	### The GRS without the clinical covariates
-  ### SCORESUMfiltered.info.0.8.frq.0.01 is the name of the GRS column
-	f0 <- formula(paste("as.factor(", pheno, ") ~ SCORESUMfiltered.info.0.8.frq.0.01 +", covariates, sep=""))
+	if( mygrs.z == 0 ) {
+		
+		### The GRS without the clinical covariates
+		f0 <- formula(paste("as.factor(", pheno, ") ~ SCORESUMfiltered.info.0.8.frq.0.01 +", covariates, sep=""))
+
+		### The GRS with the clinical covariates included
+		f1 <- formula(paste("as.factor(", pheno, ") ~ SCORESUMfiltered.info.0.8.frq.0.01 +", covariates, " + ", clinical, sep=""))  
+	
+
+	} else if( mygrs.z == 1 ) {
+		
+		### The GRS without the clinical covariates
+		f0 <- formula(paste("as.factor(", pheno, ") ~ grs.z +", covariates, sep=""))
+	
+	
+		### The GRS with the clinical covariates included
+		f1 <- formula(paste("as.factor(", pheno, ") ~ grs.z +", covariates, " + ", clinical, sep=""))  
+
+	}
 	
 	### Extract the beta/p-value of SCORESUM
 	b0 <- coef(summary(glm(f0, data=data, family="binomial")))[2,1]
 	se0 <- coef(summary(glm(f0, data=data, family="binomial")))[2,2]
 	p0 <- coef(summary(glm(f0, data=data, family="binomial")))[2,4]
 
-	### The GRS with the clinical covariates included
-	f1 <- formula(paste("as.factor(", pheno, ") ~ SCORESUMfiltered.info.0.8.frq.0.01 +", covariates, " + ", clinical, sep=""))  
-	
 	### Extract the beta/p-value of SCORESUM
 	b1 <- coef(summary(glm(f1, data=data, family="binomial")))[2,1]
 	se1 <- coef(summary(glm(f1, data=data, family="binomial")))[2,2]
@@ -57,8 +78,9 @@ for(i in c(26,27,40,41,52,53,28,29,42,43,50,51,30,31,54,55,34:39,46,47,58,59)) {
 	### Store the results
 	tmp <- c(pheno,cases,controls,b0,se0,p0,b1,se1,p1)
 	results.all[counter,]  <- tmp
+			
 	counter <- counter + 1
-	
+
 }
 
 #################
